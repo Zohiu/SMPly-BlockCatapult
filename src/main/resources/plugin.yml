@@ -1,0 +1,7 @@
+name: SMPly-BlockCatapult
+version: '${project.version}'
+main: io.github.zohiu.smplyblockcatapult.SMPlyBlockCatapult
+api-version: 1.19
+authors: [ Zohiu ]
+description: SMPly
+website: https://github.com/Zohiu/SMPly-BlockCatapult
