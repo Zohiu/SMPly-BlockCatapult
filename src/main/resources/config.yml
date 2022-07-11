@@ -1,0 +1,7 @@
+# SMPly Block Catapult config
+
+block: emerald_block
+falldamage_on_block: true
+particles: true
+fireworks: true
+force: 10
