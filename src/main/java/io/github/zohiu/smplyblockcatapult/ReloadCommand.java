@@ -1,5 +1,6 @@
 package io.github.zohiu.smplyblockcatapult;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,10 +14,10 @@ public class ReloadCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length < 1) {
-            sender.sendMessage(SMPlyBlockCatapult.getInstance().plugin_prefix + "Usage: /smplyblockcatapult reload");
+            sender.sendMessage(ChatColor.RED + "Usage: /smplyblockcatapult reload");
         } else {
             String output = SMPlyBlockCatapult.getInstance().loadConfig();
-            sender.sendMessage(SMPlyBlockCatapult.getInstance().plugin_prefix + output);
+            sender.sendMessage(ChatColor.GREEN + output);
         }
         return true;
     }

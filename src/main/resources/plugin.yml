@@ -5,8 +5,8 @@ api-version: 1.19
 authors: [ Zohiu ]
 description: SMPly
 website: https://github.com/Zohiu/SMPly-BlockCatapult
-depend: [SMPly-Core]
 commands:
   smplyblockcatapult:
     description: Block Catapult main command
     usage: /smplyblockcatapult
+    permission: smply.reload

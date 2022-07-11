@@ -3,16 +3,11 @@ package io.github.zohiu.smplyblockcatapult;
 import com.tchristofferson.configupdater.ConfigUpdater;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.plugin.java.JavaPlugin;
-import io.github.zohiu.smplycore.SMPlyCore;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +19,6 @@ public final class SMPlyBlockCatapult extends JavaPlugin implements Listener {
 
     public static SMPlyBlockCatapult instance;
 
-    public String plugin_prefix;
     public Material block;
     public boolean particles;
     public boolean fireworks;
@@ -44,6 +38,11 @@ public final class SMPlyBlockCatapult extends JavaPlugin implements Listener {
         this.getCommand("smplyblockcatapult").setExecutor(new ReloadCommand());
 
         this.getLogger().log(Level.INFO, ChatColor.GREEN + "Enabled.");
+    }
+
+    @Override
+    public void onDisable() {
+        this.getLogger().log(Level.INFO, ChatColor.RED + "Disabled.");
     }
 
     public String loadConfig() {
@@ -68,10 +67,6 @@ public final class SMPlyBlockCatapult extends JavaPlugin implements Listener {
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
-
-        // Config of core plugin
-        plugin_prefix = SMPlyCore.getInstance().plugin_prefix;
-
 
         // set vars from config
         block = Material.matchMaterial(Objects.requireNonNull(config.getString("block")));
